@@ -2,9 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bookPath = require('./routes/book');
 const userPath = require('./routes/user');
+const app = express();
 
 //Base de donnée
-const app = express();
 mongoose.connect('mongodb+srv://justinelaunay8:LHb0ueUs7PKANfvE@cluster0.vvdu3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
     { useNewUrlParser: true,
       useUnifiedTopology: true })
