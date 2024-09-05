@@ -1,4 +1,5 @@
 const Book = require('../models/book');
+const fs = require('fs');
 
 // Création d'un livre //
 exports.createBook = (req, res, next) => {
