@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bookPath = require('./routes/book');
 const userPath = require('./routes/user');
+const bookPath = require('./routes/book');
 const app = express();
 
 //Base de donnée
@@ -20,8 +20,8 @@ app.use((req, res, next) => {
   });
 
 //Routes
-app.use('/api/books', bookPath);
 app.use('/api/auth', userPath);
+app.use('/api/books', bookPath);
 app.use('/images', express.static('images'));
 
 app.use(express.json());
