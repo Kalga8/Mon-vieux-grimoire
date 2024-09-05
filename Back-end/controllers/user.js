@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 // Inscription //
-exports.userSignup = (req, res, next) => {
+exports.userSignup = (req, res) => {
     bcrypt.hash(req.body.password, 10)
     .then(hash => {
       const user = new User({
@@ -41,4 +41,4 @@ exports.userLogin = (req, res, next) => {
             .catch(error => res.status(500).json({ error }));
     })
     .catch(error => res.status(500).json({ error }));
-}
+};
