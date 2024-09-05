@@ -43,13 +43,17 @@ exports.login = async (req, res) => {
         // Génération du token JWT
         const token = jwt.sign(
             { userId: user._id },
-            process.env.TOKEN || 'default_secret_key', // Assurez-vous que la clé secrète est bien définie
+            process.env.TOKEN || 'default_secret_key',
             { expiresIn: '24h' }
         );
 
         res.status(200).json({
             userId: user._id,
-            token: token,
+            token: jwt.sign(
+                { userId: user._id },
+                'RANDOM_TOKEN_SECRET',
+                { expiresIn: '24h' }
+            )
         });
     } catch (error) {
         console.error('Erreur lors de la connexion :', error);
