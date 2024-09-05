@@ -4,9 +4,11 @@ const userPath = require('./routes/user');
 const bookPath = require('./routes/book');
 const app = express();
 
+app.use(express.json());
+
 //Base de donnée
 mongoose.connect('mongodb+srv://justinelaunay8:LHb0ueUs7PKANfvE@cluster0.vvdu3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
-  { useNewUrlParser: true, useUnifiedTopology: true })
+  )
     .then(() => console.log('Connexion à MongoDB réussie !'))
     .catch(() => console.log('Connexion à MongoDB échouée !'));
 
@@ -24,7 +26,5 @@ app.use((req, res, next) => {
 app.use('/api/auth', userPath);
 app.use('/api/books', bookPath);
 app.use('/images', express.static('images'));
-
-app.use(express.json());
 
 module.exports = app;
