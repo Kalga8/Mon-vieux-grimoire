@@ -10,5 +10,6 @@ router.delete('/:id', auth, bookCtrl.deleteBook); // Supprimer un livre //
 router.get('/:id', bookCtrl.getOneBook); // Rechercher un livre //
 router.get('/', bookCtrl.getAllBooks); // Rechercher tous les livres //
 router.post('/:id/rating', auth, bookCtrl.ratingBook); // Notation d'un livre //
+router.get('/bestrating', bookCtrl.getBestRatings); // Obtenir les meilleurs livres //
 
 module.exports = router;
