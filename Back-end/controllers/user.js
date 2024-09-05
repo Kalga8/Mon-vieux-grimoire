@@ -8,13 +8,13 @@ exports.userSignup = (req, res, next) => {
     .then(hash => {
       const user = new User({
         email: req.body.email,
-        password: hash
+        password : hash
       });
       user.save()
         .then(() => res.status(201).json({ message: 'Utilisateur créé !' }))
-        .catch(error => res.status(400).json({ error }))
-        .catch(error => res.status(500).json({ error })); 
+        .catch(error => res.status(400).json({ error }));
     })
+    .catch(error => res.status(500).json({ error })); 
 };
 
 // Login //
